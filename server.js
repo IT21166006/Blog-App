@@ -11,6 +11,10 @@ dotenv.config();
 //mongodb connection
 connectDB();
 
+//router import
+const userRoutes = require("./routes/userRoutes");
+const blogRoutes = require("./routes/blogRoutes");
+
 //rest object
 const app = express();
 
