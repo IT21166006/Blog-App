@@ -24,9 +24,12 @@ app.use("/", (req, res) => {
 });
 
 
+// Port
+const PORT = process.env.PORT || 8080;
 //listen
-app.listen(8080, () => {
+app.listen(PORT, () => {
   console.log(
-    `Server Running on port 8080 `.bgCyan.white);
-  
+    `Server Running on ${process.env.DEV_MODE} mode port no ${PORT}`.bgCyan
+      .white
+  );
 });
