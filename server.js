@@ -13,7 +13,7 @@ connectDB();
 
 //router import
 const userRoutes = require("./routes/userRoutes");
-const blogRoutes = require("./routes/blogRoutes");
+// const blogRoutes = require("./routes/blogRoutes");
 
 //rest object
 const app = express();
@@ -24,12 +24,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 //routes
-app.use("/", (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: "Welcome to blog app",
-    });
-});
+app.use("/api/v1/user", userRoutes);
 
 
 // Port
