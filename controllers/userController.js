@@ -11,7 +11,15 @@ exports.registerController = async (req, res) => {
         message: "Please Fill all fields",
       });
     }
-    
+    //exisiting user
+    const exisitingUser = await userModel.findOne({ email });
+    if (exisitingUser) {
+      return res.status(401).send({
+        success: false,
+        message: "user already exisits",
+      });
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     //save new user
     const user = new userModel({ username, email, password: hashedPassword });
