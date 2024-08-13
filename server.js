@@ -13,7 +13,7 @@ connectDB();
 
 //router import
 const userRoutes = require("./routes/userRoutes");
-// const blogRoutes = require("./routes/blogRoutes");
+const blogRoutes = require("./routes/blogRoutes");
 
 //rest object
 const app = express();
@@ -25,6 +25,7 @@ app.use(morgan("dev"));
 
 //routes
 app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/blog", blogRoutes);
 
 
 // Port
